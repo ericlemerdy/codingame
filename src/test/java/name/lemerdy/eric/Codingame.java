@@ -30,7 +30,7 @@ public class Codingame {
             assertThat(in.exists(), CoreMatchers.is(true));
             main(new FileInputStream(in), new PrintStream(out), null);
             String output = in.getName().replace("input", "output");
-            assertThat(out.toString(), is(on("\n").join(concat(readLines(new File(getFileDir(), output), UTF_8), newArrayList("")))));
+            assertThat("actual is different from " + output + " content.", out.toString(), is(on("\n").join(concat(readLines(new File(getFileDir(), output), UTF_8), newArrayList("")))));
         }
     }
 
