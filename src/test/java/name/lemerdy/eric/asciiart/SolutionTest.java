@@ -1,17 +1,20 @@
 package name.lemerdy.eric.asciiart;
 
 import name.lemerdy.eric.Codingame;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static name.lemerdy.eric.asciiart.Solution.withWidth;
-import static org.junit.Assert.assertArrayEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
-public class SolutionTest extends Codingame {
+class SolutionTest extends Codingame {
+
     @Test
-    public void with_an_alphabet_should_write_letter_e() {
+    @DisplayName("with an alphabet should write letter e")
+    void with_an_alphabet_should_write_letter_e() {
         Collection<String> e;
         Solution.AlphabetBuilder alphabetBuilder = withWidth(4);
         Solution.AlphabetBuilder alphabetBuilder1 = alphabetBuilder.andHeight(5);
@@ -22,44 +25,45 @@ public class SolutionTest extends Codingame {
                 "# # # # #   # # #   #   # # # #  #  # # # # #   # # # # # # #    ## # #   #  #  # # # # ### # #  #  #       ",
                 "# # ##   ## ##  ### #    ## # # ###  #  # # ### # # # #  #  #     # # # ##   #  ###  #  # # # #  #  ###  #  "));
         e = alphabet.write("E");
-        assertArrayEquals(newArrayList( //
+        assertThat(e.toArray()).isEqualTo(newArrayList( //
                 "### ",
                 "#   ",
                 "##  ",
                 "#   ",
-                "### ").toArray(), e.toArray()
-        );
+                "### ").toArray());
     }
 
     @Test
-    public void with_an_alphabet_should_write_letter_a() {
+    @DisplayName("with an alphabet should write letter a")
+    void with_an_alphabet_should_write_letter_a() {
         Collection<String> a = withWidth(4).andHeight(5).andAlphabet(newArrayList(//
                 " #  ##   ## ##  ### ###  ## # # ###  ## # # #   # # ###  #  ##   #  ##   ## ### # # # # # # # # # # ### ### ",
                 "# # # # #   # # #   #   #   # #  #    # # # #   ### # # # # # # # # # # #    #  # # # # # # # # # #   #   # ",
                 "### ##  #   # # ##  ##  # # ###  #    # ##  #   ### # # # # ##  # # ##   #   #  # # # # ###  #   #   #   ## ",
                 "# # # # #   # # #   #   # # # #  #  # # # # #   # # # # # # #    ## # #   #  #  # # # # ### # #  #  #       ",
                 "# # ##   ## ##  ### #    ## # # ###  #  # # ### # # # #  #  #     # # # ##   #  ###  #  # # # #  #  ###  #  ")).write("A");
-        assertArrayEquals(newArrayList( //
+        assertThat(a.toArray()).isEqualTo(newArrayList( //
                 " #  ",
                 "# # ",
                 "### ",
                 "# # ",
-                "# # ").toArray(), a.toArray());
+                "# # ").toArray());
     }
 
     @Test
-    public void with_an_alphabet_should_write_letters_ab() {
+    @DisplayName("with an alphabet should write letters ab")
+    void with_an_alphabet_should_write_letters_ab() {
         Collection<String> a = withWidth(4).andHeight(5).andAlphabet(newArrayList(//
                 " #  ##   ## ##  ### ###  ## # # ###  ## # # #   # # ###  #  ##   #  ##   ## ### # # # # # # # # # # ### ### ",
                 "# # # # #   # # #   #   #   # #  #    # # # #   ### # # # # # # # # # # #    #  # # # # # # # # # #   #   # ",
                 "### ##  #   # # ##  ##  # # ###  #    # ##  #   ### # # # # ##  # # ##   #   #  # # # # ###  #   #   #   ## ",
                 "# # # # #   # # #   #   # # # #  #  # # # # #   # # # # # # #    ## # #   #  #  # # # # ### # #  #  #       ",
                 "# # ##   ## ##  ### #    ## # # ###  #  # # ### # # # #  #  #     # # # ##   #  ###  #  # # # #  #  ###  #  ")).write("AB");
-        assertArrayEquals(newArrayList( //
+        assertThat(a.toArray()).isEqualTo(newArrayList( //
                 " #  ##  ",
                 "# # # # ",
                 "### ##  ",
                 "# # # # ",
-                "# # ##  ").toArray(), a.toArray());
+                "# # ##  ").toArray());
     }
 }

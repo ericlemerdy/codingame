@@ -2,13 +2,14 @@ package name.lemerdy.eric.asciiart;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.*;
-import java.util.regex.Matcher;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static java.lang.String.valueOf;
